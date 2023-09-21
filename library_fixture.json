@@ -1,0 +1,187 @@
+[
+{
+    "model": "library.category",
+    "pk": 1,
+    "fields": {
+        "name": "Romance"
+    }
+},
+{
+    "model": "library.category",
+    "pk": 2,
+    "fields": {
+        "name": "Triller"
+    }
+},
+{
+    "model": "library.category",
+    "pk": 3,
+    "fields": {
+        "name": "Camedy"
+    }
+},
+{
+    "model": "library.category",
+    "pk": 4,
+    "fields": {
+        "name": "Detective"
+    }
+},
+{
+    "model": "library.category",
+    "pk": 5,
+    "fields": {
+        "name": "Fantasy"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 1,
+    "fields": {
+        "category": 3,
+        "title": "HOLLY",
+        "author": "by Stephen King",
+        "image": "",
+        "description": "The private detective Holly Gibney investigates whether a married pair of octogenarian academics had anything to do with Bonnie Dahl’s disappearance.",
+        "daily_fee": "5.00",
+        "cover": "hard",
+        "created": "2023-09-14T10:07:43.119",
+        "updated": "2023-09-14T10:07:43.119"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 2,
+    "fields": {
+        "category": 4,
+        "title": "THINGS WE LEFT BEHIND",
+        "author": "by Lucy Score",
+        "image": "",
+        "description": "The third book in the Knockemout series. A mogul and a small-town librarian share a dark secret from their past.",
+        "daily_fee": "10.00",
+        "cover": "hard",
+        "created": "2023-09-14T10:08:11.010",
+        "updated": "2023-09-14T10:08:11.010"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 3,
+    "fields": {
+        "category": 5,
+        "title": "PAYBACK IN DEATH",
+        "author": "by J.D. Robb",
+        "image": "",
+        "description": "The 57th book of the In Death series. Eve Dallas looks into the death of an internal affairs captain.",
+        "daily_fee": "7.00",
+        "cover": "hard",
+        "created": "2023-09-14T10:08:36.901",
+        "updated": "2023-09-14T10:08:36.901"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 4,
+    "fields": {
+        "category": 1,
+        "title": "FOURTH WING",
+        "author": "by Rebecca Yarros",
+        "image": "",
+        "description": "Violet Sorrengail is urged by the commanding general, who also is her mother, to become a candidate for the elite dragon riders.",
+        "daily_fee": "8.00",
+        "cover": "hard",
+        "created": "2023-09-14T10:09:07.336",
+        "updated": "2023-09-14T10:09:07.336"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 5,
+    "fields": {
+        "category": 2,
+        "title": "THE RIVER WE REMEMBER",
+        "author": "by William Kent Krueger",
+        "image": "",
+        "description": "Suspicions and accusations complicate a sheriff’s investigation of a wealthy landowner’s murder in a small Minnesota town in 1958.",
+        "daily_fee": "12.00",
+        "cover": "soft",
+        "created": "2023-09-14T10:09:35.258",
+        "updated": "2023-09-14T10:09:35.258"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 6,
+    "fields": {
+        "category": 3,
+        "title": "TOM LAKE",
+        "author": "by Ann Patchett",
+        "image": "",
+        "description": "Three daughters, who return to their family orchard in the spring of 2020, learn about their mother’s relationship with a famous actor.",
+        "daily_fee": "15.00",
+        "cover": "soft",
+        "created": "2023-09-14T10:11:28.219",
+        "updated": "2023-09-14T10:11:28.219"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 7,
+    "fields": {
+        "category": 4,
+        "title": "THE LONGMIRE DEFENSE",
+        "author": "by Craig Johnson",
+        "image": "",
+        "description": "The 19th book in the Longmire series. A rifle connected to a cold case once belonged to Walt’s grandfather.",
+        "daily_fee": "14.00",
+        "cover": "hard",
+        "created": "2023-09-14T10:11:58.072",
+        "updated": "2023-09-14T10:11:58.072"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 8,
+    "fields": {
+        "category": 1,
+        "title": "TOM CLANCY: WEAPONS GRADE",
+        "author": "by Don Bentley",
+        "image": "",
+        "description": "Jack Ryan Jr. witnesses a professional hit and gets caught up in the cold case of a college student who vanished.",
+        "daily_fee": "4.00",
+        "cover": "hard",
+        "created": "2023-09-14T10:12:24.928",
+        "updated": "2023-09-14T10:12:24.928"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 9,
+    "fields": {
+        "category": 2,
+        "title": "THE HOUSEMAID",
+        "author": "by Freida McFadden",
+        "image": "",
+        "description": "Troubles surface when a woman looking to make a fresh start takes a job in the home of the Winchesters.",
+        "daily_fee": "7.00",
+        "cover": "hard",
+        "created": "2023-09-14T10:12:50.341",
+        "updated": "2023-09-14T10:12:50.341"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 10,
+    "fields": {
+        "category": 3,
+        "title": "ASSISTANT TO THE VILLAIN",
+        "author": "by Hannah Nicole Maehrer",
+        "image": "",
+        "description": "Evie Sage gets a job doing unspecified office duties for the most infamous villain in the kingdom of Rennedawn.",
+        "daily_fee": "11.00",
+        "cover": "soft",
+        "created": "2023-09-14T10:13:16.930",
+        "updated": "2023-09-14T10:13:16.930"
+    }
+}
+]
