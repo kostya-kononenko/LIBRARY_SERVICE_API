@@ -34,3 +34,51 @@ class CategoryViewSet(viewsets.ModelViewSet):
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
+
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all().select_related("category")
+    serializer_class = BookSerializer
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = BookFilter
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return BookListSerializer
+        if self.action == "retrieve":
+            return BookDetailSerializer
+        return BookSerializer
+
+    def get_queryset(self):
+        book = (
+            Book.objects.all()
+            .annotate(
+                rating_user=models.Count(
+                    "ratings", filter=models.Q(
+                        ratings__ip=get_client_ip(self.request))
+                )
+            )
+            .annotate(
+                middle_star=models.Sum(models.F("ratings__star"))
+                / models.Count(models.F("ratings"))
+            )
+        )
+        return book
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                "title",
+                type=OpenApiTypes.STR,
+                description="Filter by title (ex. ?title=title)",
+            ),
+            OpenApiParameter(
+                "country",
+                type=OpenApiTypes.STR,
+                description="Filter by author (ex. ?author=author)",
+            ),
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
