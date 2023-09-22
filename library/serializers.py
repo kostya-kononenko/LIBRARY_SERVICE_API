@@ -77,3 +77,17 @@ class BookDetailSerializer(serializers.ModelSerializer):
             "category",
             "is_available",
         )
+
+
+class CreateRatingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rating
+        fields = ("star", "book", "ip")
+
+        def create(self, validate_data):
+            rating = Rating.objects.update_or_create(
+                ip=validate_data.get("ip", None),
+                airplane=validate_data.get("airplane", None),
+                defaults={"star": validate_data.get("star")},
+            )
+            return rating
