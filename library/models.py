@@ -60,3 +60,36 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class RatingStarBook(models.Model):
+    value = models.PositiveSmallIntegerField("Meaning", default=0)
+
+    def __str__(self):
+        return f"{self.value}"
+
+    class Meta:
+        verbose_name = "Star rating"
+        verbose_name_plural = "Rating Stars"
+        ordering = ["-value"]
+
+
+class Rating(models.Model):
+    ip = models.CharField("IP address",
+                          max_length=15)
+    star = models.ForeignKey(
+        RatingStarBook,
+        on_delete=models.CASCADE,
+        verbose_name="star"
+    )
+    book = models.ForeignKey(
+        Book,
+        on_delete=models.CASCADE,
+        related_name="ratings")
+
+    def __str__(self):
+        return f"{self.star} - {self.book}"
+
+    class Meta:
+        verbose_name = "Rating"
+        verbose_name_plural = "Ratings"
