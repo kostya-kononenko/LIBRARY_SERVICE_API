@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     "rest_framework",
     "debug_toolbar",
     "drf_spectacular",
-    "rest_framework_simplejwt"
+    "rest_framework_simplejwt",
     "user",
+    "library",
 ]
 
 MIDDLEWARE = [
@@ -146,7 +147,6 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
 }
 
 SIMPLE_JWT = {
