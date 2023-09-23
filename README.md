@@ -74,4 +74,4 @@ The RESTful API for a library service platform.
 
 ## Diagram of all models:
 
-![library_book.png](library_book.png)
+![library_book](https://github.com/kostya-kononenko/LIBRARY_SERVICE_API/assets/107486491/0a0ef652-3ae4-4f99-9d42-fc52b19f23df)
