@@ -23,9 +23,9 @@ class Payment(models.Model):
         choices=Types.choices,
         default=Types.PAYMENT
     )
-    session_url = models.URLField()
+    session_url = models.URLField(max_length=500)
     session_id = models.CharField(
-        max_length=63,
+        max_length=200,
         unique=True)
     money_to_pay = models.DecimalField(
         max_digits=10,
@@ -45,6 +45,3 @@ class Payment(models.Model):
         return (f"Payment {self.id} "
                 f"({self.payment_type}) "
                 f"{self.user.email}")
-from django.db import models
-
-# Create your models here.
