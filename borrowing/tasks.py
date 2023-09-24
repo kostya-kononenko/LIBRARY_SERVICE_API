@@ -3,7 +3,7 @@ import datetime
 from celery import shared_task
 from django.core.mail import send_mail
 
-from main import settings
+from library_service import settings
 from telebot import TeleBot
 from borrowing.models import Borrowing
 

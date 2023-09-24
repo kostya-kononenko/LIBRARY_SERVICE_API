@@ -6,7 +6,7 @@ from borrowing.count_borrowing import (
     count_total_price_start_borrowing,
     count_total_price_end_borrowing,
 )
-from main import settings
+from library_service import settings
 from payment.models import Payment
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
