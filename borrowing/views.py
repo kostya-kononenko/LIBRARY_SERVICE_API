@@ -61,10 +61,10 @@ class BorrowingViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(
             instance=self.get_object(),
             data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(serializer.data,
-                            status=status.HTTP_200_OK)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data,
+                        status=status.HTTP_200_OK)
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
