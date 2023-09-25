@@ -2,7 +2,6 @@ import datetime
 
 from rest_framework import serializers
 
-import borrowing
 from borrowing.models import Borrowing
 from borrowing.tasks import (
     send_message_of_borrowing_return_email,
@@ -11,10 +10,8 @@ from borrowing.tasks import (
     send_message_of_borrowing_return_telegram,
 )
 from library.serializers import BookSerializer
-from payment.models import Payment
 from payment.serializers import PaymentSerializer
 from payment.stripe import create_stripe_session
-from user.models import User
 
 
 class BorrowingSerializer(serializers.ModelSerializer):
@@ -128,7 +125,7 @@ class BorrowingCreateSerializer(serializers.ModelSerializer):
         )
         book.save()
         create_stripe_session(borrowing, request=self.context["request"])
-        if user.user_notification == "email":
+        if user.NotificationType.Email:
             send_message_of_borrowing_creation_email(borrowing, user)
         else:
             send_message_of_borrowing_creation_telegram(borrowing)
@@ -169,7 +166,7 @@ class BorrowingReturnSerializer(serializers.ModelSerializer):
         instance.actual_return = datetime.datetime.today()
         instance.save()
         create_stripe_session(instance, self.context.get("request"))
-        if user.user_notification == "email":
+        if user.NotificationType.Email:
             send_message_of_borrowing_return_email(instance, user)
         else:
             send_message_of_borrowing_return_telegram(instance)

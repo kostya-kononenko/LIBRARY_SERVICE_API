@@ -3,8 +3,8 @@ import stripe
 from django.urls import reverse
 
 from borrowing.count_borrowing import (
-    count_total_price_start_borrowing,
-    count_total_price_end_borrowing,
+    calculate_total_price_start_borrowing,
+    calculate_total_price_end_borrowing,
 )
 from library_service import settings
 from payment.models import Payment
@@ -23,12 +23,12 @@ def create_payment(borrowing, session):
     )
     if borrowing.actual_return is None:
         payment.money_to_pay = round(
-            count_total_price_start_borrowing(borrowing) / 100, 2
+            calculate_total_price_start_borrowing(borrowing) / 100, 2
         )
         payment.save()
     else:
         payment.money_to_pay = round(
-            count_total_price_end_borrowing(borrowing) / 100, 2
+            calculate_total_price_end_borrowing(borrowing) / 100, 2
         )
         payment.save()
     return payment
@@ -48,9 +48,9 @@ def create_stripe_session(borrowing, request):
         + "?session_id={CHECKOUT_SESSION_ID}"
     )
     if borrowing.actual_return is None:
-        total_price_in_cents = count_total_price_start_borrowing(borrowing)
+        total_price_in_cents = calculate_total_price_start_borrowing(borrowing)
     else:
-        total_price_in_cents = count_total_price_end_borrowing(borrowing)
+        total_price_in_cents = calculate_total_price_end_borrowing(borrowing)
 
     session = stripe.checkout.Session.create(
         payment_method_types=["card"],

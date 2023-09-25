@@ -19,7 +19,7 @@ class Category(models.Model):
 
 
 class Book(models.Model):
-    class Cower(models.TextChoices):
+    class Cover(models.TextChoices):
         HARD = "hard", "hard"
         SOFT = "soft", "soft"
 
@@ -36,8 +36,8 @@ class Book(models.Model):
     daily_fee = models.DecimalField(max_digits=10,
                                     decimal_places=2)
     cover = models.CharField(max_length=25,
-                             choices=Cower.choices,
-                             default=Cower.HARD)
+                             choices=Cover.choices,
+                             default=Cover.HARD)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
